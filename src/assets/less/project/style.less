@@ -1,0 +1,32 @@
+@import "../common/var";
+// 语言选择器
+.lang-setting {
+  position: absolute;
+  z-index: 1;
+  right: 20px;
+  top: 20px;
+
+  .el-input__inner {
+    border: none;
+    background-color: transparent;
+  }
+}
+
+.main-header {
+  line-height: 50px;
+  border-bottom: 1px solid @color-border;
+}
+
+// common-el-main-padding 和 common-el-page-padding 用于计算页面高度，不能随意改动
+.common-el-main-padding.el-main {
+  padding: 20px;
+}
+
+.common-el-page-padding.el-page-header {
+  padding-top: 20px;
+}
+
+.common-query {
+  // 设置overflow为auto之后，该元素会触发bfc，使其计算高度时能够正确计算其子元素的margin值
+  overflow: inherit;
+}

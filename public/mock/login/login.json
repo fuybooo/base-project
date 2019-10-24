@@ -1,0 +1,12 @@
+{
+  "code": 200,
+  "head": {
+    "errCode": 0
+  },
+  "msg": "",
+  "data": {
+    "uid": "1",
+    "token": "1",
+    "type": "1"
+  }
+}

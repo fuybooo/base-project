@@ -1,0 +1,25 @@
+{
+  "code": 200,
+  "head": {
+    "errCode": 0
+  },
+  "msg": "",
+  "data": {
+    "results": [
+      {
+        "code": "home",
+        "name": "首页",
+        "sort": "1",
+        "id": "1",
+        "parentId": "0"
+      },
+      {
+        "code": "demo",
+        "name": "示例",
+        "sort": "2",
+        "id": "2",
+        "parentId": "0"
+      }
+    ]
+  }
+}
