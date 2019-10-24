@@ -29,11 +29,5 @@ export function getDefaultMenus () {
 }
 
 export function getMenus (list: any[]) {
-  return convertListToTree(list.filter((item: any) => item.parentId !== 0).map((item: any) => ({
-    index: item.code,
-    title: item.name,
-    sort: item.sort,
-    id: item.id,
-    parentId: item.parentId,
-  })))
+  return convertListToTree(list)
 }

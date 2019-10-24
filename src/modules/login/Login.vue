@@ -49,7 +49,7 @@
   import {gc} from '@/util/common/fns/fns'
   import {KEY_TOKEN} from '@/model/project/local-storage-keys/keys'
   import {login} from '@/modules/login/login.service'
-  import { HttpRes } from '@/model/common/models';
+  import { HttpRes } from '@/model/common/models'
 
   const rules = {
     username: [
