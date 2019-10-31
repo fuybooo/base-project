@@ -101,7 +101,7 @@ export const columnWidth = {
   w200: 200,
   w260: 260,
   w320: 320,
-  date: 90, // 83时换行 YYYY-MM-DD 84 + 6
-  dateTime: 124, // 117时换行 YYYY-MM-DD HH:mm 118 + 6
-  dateTimeAll: 140, // 133时换行 YYYY-MM-DD HH:mm:ss 134 + 6
+  date: 90, // 83时换行 yyyy-MM-dd 84 + 6
+  dateTime: 124, // 117时换行 yyyy-MM-dd HH:mm 118 + 6
+  dateTimeAll: 140, // 133时换行 yyyy-MM-dd HH:mm:ss 134 + 6
 }

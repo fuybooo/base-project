@@ -18,6 +18,11 @@
   import {Pattern} from '@/model/common/models'
   import {getAllParentById} from '@/util/common/fns/fns-tree'
 
+  interface listItem {
+    id: string
+    index: string
+    title: string
+  }
   @Component({})
   export default class PageHeader extends Vue {
     public hidden = true
@@ -35,19 +40,26 @@
         me.hidden = !!crtRoute.meta.hideBread
         let breadMenus: any = []
         executeUntil(() => me.$store.state.menus.length > 0, () => {
-          const list = me.$store.state.menus
+          const list: listItem[] = me.$store.state.menus // [{index: '', title: ''}]
           if (crtRoute.meta && crtRoute.meta.parentName) {
             // 当前路由是不会显示在菜单导航栏中的
-            const crtParent = list.find((item: any) => item.code === crtRoute.meta.parentName)
-            // 大部分的菜单都是后端配置的，但是前端的路由还是控制者部分导航信息的显示
-            breadMenus = [...getBreadList(getAllParentById(list, crtParent.id)), {name: crtParent.code, title: crtParent.name}, {name: crtRoute.name, title: crtRoute.meta.title}]
+            const crtParent: listItem | undefined = list.find((item: any) => item.index === crtRoute.meta.parentName)
+            if (crtParent) {
+              // 大部分的菜单都是后端配置的，但是前端的路由还是控制者部分导航信息的显示
+              breadMenus = [...getBreadList(getAllParentById(list, crtParent.id)), {
+                name: crtParent.index,
+                title: crtParent.title
+              }, {name: crtRoute.name, title: crtRoute.meta.title}]
+            } else {
+              breadMenus = [{name: crtRoute.name, title: crtRoute.meta.title}]
+            }
             if (!crtRoute.meta.notAutoPageTitle) {
               breadMenus.push({title: getPageTitle(crtRoute.params.pattern as Pattern)})
             }
           } else {
-            const crtMenu = list.find((item: any) => item.code === crtRoute.name)
+            const crtMenu: listItem | undefined = list.find((item: any) => item.index === crtRoute.name)
             if (crtMenu) {
-              breadMenus = [...getBreadList(getAllParentById(list, crtMenu.id)), {name: crtMenu.code, title: crtMenu.name}]
+              breadMenus = [...getBreadList(getAllParentById(list, crtMenu.id)), {name: crtMenu.index, title: crtMenu.title}]
             } else {
               breadMenus = []
             }
@@ -62,7 +74,7 @@
     }
   }
   function getBreadList (list: any[]) {
-    return list.map((item: any) => ({name: item.code, title: item.name}))
+    return list.map((item: any) => ({name: item.index, title: item.title}))
   }
 </script>
 <style scoped lang="less">

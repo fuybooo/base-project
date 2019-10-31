@@ -435,11 +435,11 @@ function setExtraValue (item: Schema, val: any) {
       const startDate = new Date(val[0])
       const endDate = new Date(val[1])
       // 设置默认的日期文本
-      let start: string = format(startDate, 'YYYY-MM-DD')
-      let end: string = format(endDate, 'YYYY-MM-DD')
+      let start: string = format(startDate, 'yyyy-MM-dd')
+      let end: string = format(endDate, 'yyyy-MM-dd')
       if (item.props.type === 'datetimerange') {
-        start = format(startDate, 'YYYY-MM-DD HH:mm:ss')
-        end = format(endDate, 'YYYY-MM-DD HH:mm:ss')
+        start = format(startDate, 'yyyy-MM-dd HH:mm:ss')
+        end = format(endDate, 'yyyy-MM-dd HH:mm:ss')
       } else if (item.props.type === 'monthrange') {
         start = format(startDate, 'YYYY-MM')
         end = format(endDate, 'YYYY-MM')
@@ -448,15 +448,15 @@ function setExtraValue (item: Schema, val: any) {
       setProp.bind(me.value)(item.endProp, val.length === 2 ? end : '')
     }
   } else if (isDate(item)) {
-    let date: string = format(new Date(val), 'YYYY-MM-DD')
+    let date: string = format(new Date(val), 'yyyy-MM-dd')
     if (item.props.type === 'year') {
       date = format(new Date(val), 'YYYY')
     } else if (item.props.type === 'month') {
       date = format(new Date(val), 'YYYY-MM')
     } else if (item.props.type === 'datetime') {
-      date = format(new Date(val), 'YYYY-MM-DD HH:mm:ss')
+      date = format(new Date(val), 'yyyy-MM-dd HH:mm:ss')
     } else if (item.props.type === 'dates') {
-      date = (val || []).map((d: string) => format(new Date(d), 'YYYY-MM-DD'))
+      date = (val || []).map((d: string) => format(new Date(d), 'yyyy-MM-dd'))
     } else if (item.props.type === 'week') {
       date = val
     }
@@ -485,6 +485,7 @@ function createInlineBtnItem (createElement: typeof Vue.prototype.$createElement
       nativeOn: {
         click () {
           me.$refs.form.resetFields()
+          setFormData(me.value, {}, true)
           setProp.bind(me.value)(UUID_KEY, guid())
           me.$emit('reset')
         },

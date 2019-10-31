@@ -112,7 +112,7 @@ Vue.component('BaseTable', {
     if (this.autoHeight || this.fixedElements || this.fixedHeight) {
       // 添加监听事件
       window.addEventListener('resize', this.resize)
-      this.resize()
+      setTimeout(() => {this.resize()}, 400)
     }
   },
   destroyed () {
@@ -438,7 +438,7 @@ function changeRouteParams () {
         } : {}) : {}),
       }, true)),
     },
-  })
+  }).catch((err: any) => err)
 }
 
 function getContent (createElement: typeof Vue.prototype.$CreateElement, col: Column, props: any): VNodeChildren {

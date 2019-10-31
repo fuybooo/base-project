@@ -149,7 +149,7 @@
         label: '生日',
         props: {
           formatter (row, col, value) {
-            return value ? format(value, 'YYYY-MM-DD HH:mm:ss') : ''
+            return value ? format(value, 'yyyy-MM-dd HH:mm:ss') : ''
           },
           width: columnWidth.dateTimeAll,
         },

@@ -112,7 +112,7 @@ export function getRoot (list: any[]) {
   return list.find(item => item.parentId === 0)
 }
 
-export function getParentById (list: any[], id: number) {
+export function getParentById (list: any[], id: number | string) {
   const crt = list.find(item => item.id === id)
   if (crt) {
     const parent = list.find(item => item.id === crt.parentId)
@@ -132,7 +132,7 @@ export function getAllParentId (list: any[], id: number): any[] {
   return getAllParentById(list, id).map(item => item.id)
 }
 
-export function getAllParentById (list: any[], id: number, parents: any[] = []): any[] {
+export function getAllParentById (list: any[], id: number | string, parents: any[] = []): any[] {
   const parent = getParentById(list, id)
   if (parent) {
     parents.unshift(parent)

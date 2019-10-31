@@ -11,9 +11,9 @@ import BaseUpload from '@/components/common-upload/BaseUpload.vue'
 import BaseFlex from '@/components/common-flex/BaseFlex.vue'
 
 // 注册全局组件
-Vue.component('LangSetting', LangSetting)
+Vue.component('AppLangSetting', LangSetting)
 Vue.component('BaseConfirm', BaseConfirm)
-Vue.component('PageHeader', PageHeader)
+Vue.component('AppPageHeader', PageHeader)
 Vue.component('BaseMenu', BaseMenu)
 Vue.component('BaseDialog', BaseDialog)
 Vue.component('BaseUpload', BaseUpload)

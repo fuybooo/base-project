@@ -6,7 +6,7 @@
     <el-main class="h">
       <el-container class="h">
         <el-header height="24">
-          <page-header class="common-el-page-padding"></page-header>
+          <app-page-header class="common-el-page-padding"></app-page-header>
         </el-header>
         <el-main class="h">
           <router-view></router-view>
